@@ -21,6 +21,7 @@ set(CMAKE_INSTALL_RPATH
   "${CONDA_ENV_PATH}/lib/python3.10/site-packages/torch/lib"
   "/usr/local/cuda-12.2/lib64"
 )
+include_directories(${CONDA_ENV_PATH}/include/python3.10)
 
 find_package(Torch REQUIRED)
 
