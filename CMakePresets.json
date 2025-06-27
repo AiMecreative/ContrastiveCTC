@@ -20,10 +20,10 @@
       "description": "Configure using conda env mecreative2",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
-        "CONDA_ENV_PATH": "/home/fangj/anaconda3/envs/mecreative2"
+        "CONDA_ENV_PATH": "$HOME/anaconda3/envs/mecreative2"
       },
       "environment": {
-        "PATH": "/home/fangj/anaconda3/envs/mecreative2/bin:$penv{PATH}"
+        "PATH": "$HOME/anaconda3/envs/mecreative2/bin:$penv{PATH}"
       }
     }
   ],

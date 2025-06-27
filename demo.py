@@ -13,8 +13,8 @@ loss, decode_map = ctc_decode_module.ctc_decode_fn(
     targets,
     input_lengths,
     target_lengths,
-    blank=int(C - 1),
+    blank=C - 1,
 )
 print("Loss:", loss.item())
-print("Alpha shape:", decode_map.shape)
+print("Decode Map shape:", decode_map.shape)
 loss.backward()
