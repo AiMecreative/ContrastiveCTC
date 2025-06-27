@@ -67,8 +67,8 @@ __global__ void ctc_forward_kernel(const float *log_probs, const int64_t *target
   losses[b] = -log_likelihood;
 }
 
-std::vector<torch::Tensor> ctc_cuda(torch::Tensor log_probs, torch::Tensor targets, torch::Tensor input_lengths,
-                                    torch::Tensor target_lengths, const int blank) {
+std::vector<torch::Tensor> ctc_decode_cuda(torch::Tensor log_probs, torch::Tensor targets, torch::Tensor input_lengths,
+                                           torch::Tensor target_lengths, const int blank) {
   const int T = log_probs.size(0);
   const int B = log_probs.size(1);
   const int C = log_probs.size(2);
@@ -88,4 +88,6 @@ std::vector<torch::Tensor> ctc_cuda(torch::Tensor log_probs, torch::Tensor targe
   return {losses, decode_map};
 }
 
-PYBIND11_MODULE(TORCH_EXTENSION_NAME, m) { m.def("ctc_cuda", &ctc_cuda, "CTCLoss with decode map (CUDA)"); }
+PYBIND11_MODULE(TORCH_EXTENSION_NAME, m) {
+  m.def("ctc_decode_cuda", &ctc_decode_cuda, "CTCLoss with decode map (CUDA)");
+}
