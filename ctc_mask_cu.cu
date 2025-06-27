@@ -8,8 +8,6 @@
 #include <cuda.h>
 #include <cuda_runtime.h>
 #include <torch/extension.h>
-#include <tuple>
-#include <vector>
 
 #define BLOCK_SIZE 256
 #define MAX_TARGET_LENGTH 256

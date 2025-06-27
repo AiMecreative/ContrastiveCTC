@@ -1,0 +1,36 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 22
+  },
+  "configurePresets": [
+    {
+      "name": "default",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "YES"
+      }
+    },
+    {
+      "name": "conda-debug",
+      "inherits": "default",
+      "description": "Configure using conda env mecreative2",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CONDA_ENV_PATH": "/home/fangj/anaconda3/envs/mecreative2"
+      },
+      "environment": {
+        "PATH": "/home/fangj/anaconda3/envs/mecreative2/bin:$penv{PATH}"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "conda-debug",
+      "configurePreset": "conda-debug"
+    }
+  ]
+}
