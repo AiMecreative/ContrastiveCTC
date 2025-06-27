@@ -55,8 +55,7 @@ def main():
     if args.env_path:
         env_path = args.env_path
     elif args.env_name:
-        home = os.environ.get("HOME")
-        env_path = f"{home}/anaconda3/envs/{args.env_name}"
+        env_path = f"$HOME/anaconda3/envs/{args.env_name}"
     else:
         env_path = detect_conda_env()
 

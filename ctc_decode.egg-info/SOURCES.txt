@@ -1,0 +1,9 @@
+LICENSE
+README.md
+ctc_decode.cpp
+ctc_decode_cuda.cu
+setup.py
+ctc_decode.egg-info/PKG-INFO
+ctc_decode.egg-info/SOURCES.txt
+ctc_decode.egg-info/dependency_links.txt
+ctc_decode.egg-info/top_level.txt

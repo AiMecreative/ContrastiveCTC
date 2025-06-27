@@ -4,12 +4,12 @@
 #include <vector>
 
 std::vector<torch::Tensor> ctc_decode_cuda(torch::Tensor log_probs, torch::Tensor targets, torch::Tensor input_lengths,
-                                           torch::Tensor target_lengths, const int blank);
+                                           torch::Tensor target_lengths, const int64_t blank);
 
 std::vector<torch::Tensor> ctc_decode(torch::Tensor log_probs, torch::Tensor targets, torch::Tensor input_lengths,
-                                      torch::Tensor target_lengths, const int blank) {
+                                      torch::Tensor target_lengths, const int64_t blank) {
   TORCH_CHECK(log_probs.is_cuda(), "log_probs must be CUDA tensor");
-  return ctc_decode(log_probs, targets, input_lengths, target_lengths, blank);
+  return ctc_decode_cuda(log_probs, targets, input_lengths, target_lengths, blank);
 }
 
 TORCH_LIBRARY(ctc_decode, m) { m.def("forward", &ctc_decode); }
